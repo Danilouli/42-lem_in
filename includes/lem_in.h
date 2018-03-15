@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 19:16:41 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/14 20:28:24 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/15 19:19:38 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 # include "../libft/includes/libft.h"
 # define MAT(i,j)	(g_lemin->mat->inds[i][j])
-# define ANT(i)		(g_lemin->ants[i])
-# define ROOM(i)	(g_lemin->rooms[i])
+# define ROOMS		(g_lemin->rooms)
+# define ANTS			(g_lemin->ants)
 # define NBROOMS	(g_lemin->nbrooms)
 # define NBANTS		(g_lemin->nbants)
 
@@ -31,6 +31,9 @@ typedef struct	s_room
 {
 	int		no;
 	char	*name;
+	char	*type;
+	int		x;
+	int		y;
 }								t_room;
 
 typedef struct	s_ant
@@ -49,6 +52,8 @@ typedef struct 	s_lemin
 }								t_lemin;
 
 void	read_lemin(void);
+void	add_room(t_room new_room);
+void	init_room(char *room_line, char *type, int room_num);
 
 t_lemin		*g_lemin;
 
