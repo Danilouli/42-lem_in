@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 17:58:06 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/15 19:52:11 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/16 16:25:25 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,15 @@ int	is_room_line(char *l)
 	while (l[i] && l[i] != ' ')
 		i++;
 	spcs = (l[i] == ' ') ? spcs + 1 : spcs;
-	if (!l[i + 1] || !ft_isnumstr(l + i + 1))
+	if (!l[i] || !l[i + 1])
 		return (0);
 	i++;
 	while (l[i] && l[i] != ' ')
+	{
+		if (!ft_isdigit(l[i]))
+			return(0);
 		i++;
+	}
 	spcs = (l[i] == ' ') ? spcs + 1 : spcs;
 	if (!l[i + 1] || !ft_isnumstr(l + i + 1))
 		return (0);
@@ -64,6 +68,7 @@ int	is_tube_line(char *l)
 		if (ft_strequ(ft_strstr(l, ROOMS[i].name), l) && l[len] == '-'
 		&& is_room_name(l + len + 1))
 			return (1);
+		i++;
 	}
 	return (0);
 }
@@ -72,7 +77,7 @@ char *is_command_line(char *l)
 {
 	if (!(l[0] == '#' && l[1] == '#'))
 		return (0);
-	if (!ft_strequ(l + 2, "start") || !ft_strequ(l + 2, "end"))
+	if (!ft_strequ(l + 2, "start") && !ft_strequ(l + 2, "end"))
 		return (0);
 	return ((ft_strequ(l + 2, "start")) ? "start" : "end");
 }

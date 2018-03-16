@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mem_copiers.c                                      :+:      :+:    :+:   */
+/*   adders.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:53:03 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/15 19:05:40 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/16 19:19:13 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ void	add_room(t_room new_room)
 	int i;
 
 	i = 0;
-	NBROOMS++;
 	if (!(new_rooms = (t_room*)(malloc(sizeof(t_room) * NBROOMS))))
-		return ;
-	if (NBROOMS - 1 == 0)
+		exit(EXIT_FAILURE);
+	if (NBROOMS == 1)
 	{
 		new_rooms[0] = new_room;
 		ROOMS = new_rooms;
@@ -35,4 +34,42 @@ void	add_room(t_room new_room)
 	new_rooms[NBROOMS - 1] = new_room;
 	free(ROOMS);
 	ROOMS = new_rooms;
+}
+
+void add_mat_line(void)
+{
+	int				i;
+	t_matrix	new_adj;
+
+	i = 0;
+	new_adj.nbl = NBROOMS;
+	new_adj.nbc = NBROOMS;
+	if (!(new_adj.inds = (int**)malloc(sizeof(int*) * NBROOMS)))
+		exit(EXIT_FAILURE);
+	if (NBROOMS == 1)
+	{
+		if (!(new_adj.inds[0] = (int*)malloc(sizeof(int))))
+			exit(EXIT_FAILURE);
+		new_adj.inds[0][0] = 0;
+		ADJ = new_adj;
+		return ;
+	}
+	while (i < NBROOMS - 1)
+	{
+		if (!(new_adj.inds[i] = (int*)malloc(sizeof(int) * new_adj.nbc)))
+			exit(EXIT_FAILURE);
+		int j = -1;
+		ft_printf("LIGNE\n");
+		while (++j < ADJ.nbc)
+			ft_printf("%d ", ADJ.inds[i][j]);
+		ft_printf("\n");
+		ft_int_tab_cpy(new_adj.inds[i], ADJ.inds[i], ADJ.nbc);
+		free(ADJ.inds[i]);
+		new_adj.inds[new_adj.nbc - 1] = 0;
+		i++;
+	}
+	if (!(new_adj.inds[new_adj.nbl - 1] = ft_intarr_init(new_adj.nbc)))
+		exit(EXIT_FAILURE);
+	free(ADJ.inds);
+	ADJ = new_adj;
 }
