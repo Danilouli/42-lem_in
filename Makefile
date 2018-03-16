@@ -6,7 +6,7 @@
 #    By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 20:20:12 by schmurz           #+#    #+#              #
-#    Updated: 2018/03/16 14:23:50 by schmurz          ###   ########.fr        #
+#    Updated: 2018/03/17 00:25:16 by schmurz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,9 +24,9 @@ LIBDIR = ./libft
 LIBS = -lft
 LIBNAME = libft.a
 INCLUDES = ./includes
-EXEC = lem-in
+EXEC = lemin
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iincludes -fsanitize=address
+CFLAGS = -Wall -Wextra -Werror -Iincludes
 SRCDIR = ./
 SRCFILES = main.c reader.c adders.c finders.c initializators.c verificators.c
 SRC = $(subst ${space}, $(SRCDIR), $(SRCFILES))

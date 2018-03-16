@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:53:03 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/16 19:19:13 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/16 22:44:51 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,9 @@ void add_mat_line(void)
 	{
 		if (!(new_adj.inds[i] = (int*)malloc(sizeof(int) * new_adj.nbc)))
 			exit(EXIT_FAILURE);
-		int j = -1;
-		ft_printf("LIGNE\n");
-		while (++j < ADJ.nbc)
-			ft_printf("%d ", ADJ.inds[i][j]);
-		ft_printf("\n");
 		ft_int_tab_cpy(new_adj.inds[i], ADJ.inds[i], ADJ.nbc);
 		free(ADJ.inds[i]);
-		new_adj.inds[new_adj.nbc - 1] = 0;
+		new_adj.inds[i][new_adj.nbc - 1] = 0;
 		i++;
 	}
 	if (!(new_adj.inds[new_adj.nbl - 1] = ft_intarr_init(new_adj.nbc)))
