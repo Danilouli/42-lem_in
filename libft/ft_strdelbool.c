@@ -1,32 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdelbool.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
+/*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/14 20:22:50 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/17 12:24:12 by dsaadia          ###   ########.fr       */
+/*   Created: 2018/03/17 11:23:11 by dsaadia           #+#    #+#             */
+/*   Updated: 2018/03/17 11:23:55 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "libft.h"
 
-int	main(void)
+int	ft_strdelbool(char **str)
 {
-	int i = 0;
-
-	read_lemin();
-	print_lemin();
-	while (i < NBROOMS)
-	{
-		ft_strdel(&(ROOMS[i].name));
-		free(ROOMS[i].helptab);
-		free(ADJ.inds[i]);
-		i++;
-	}
-	free(ADJ.inds);
-	free(ROOMS);
-	free(ANTS);
-	return (0);
+	ft_strdel(str);
+	return (1);
 }

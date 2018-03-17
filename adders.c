@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:53:03 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/16 22:44:51 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/17 12:16:04 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,26 @@ void	add_room(t_room new_room)
 	ROOMS = new_rooms;
 }
 
-void add_mat_line(void)
+static void copy_old_mat(t_matrix *new_adj)
 {
-	int				i;
-	t_matrix	new_adj;
+	int	i;
 
 	i = 0;
+	while (i < NBROOMS - 1)
+	{
+		if (!((*new_adj).inds[i] = (int*)malloc(sizeof(int) * (*new_adj).nbc)))
+			exit(EXIT_FAILURE);
+		ft_int_tab_cpy((*new_adj).inds[i], ADJ.inds[i], ADJ.nbc);
+		free(ADJ.inds[i]);
+		(*new_adj).inds[i][(*new_adj).nbc - 1] = 0;
+		i++;
+	}
+}
+
+void add_mat_line(void)
+{
+	t_matrix	new_adj;
+
 	new_adj.nbl = NBROOMS;
 	new_adj.nbc = NBROOMS;
 	if (!(new_adj.inds = (int**)malloc(sizeof(int*) * NBROOMS)))
@@ -54,17 +68,26 @@ void add_mat_line(void)
 		ADJ = new_adj;
 		return ;
 	}
-	while (i < NBROOMS - 1)
-	{
-		if (!(new_adj.inds[i] = (int*)malloc(sizeof(int) * new_adj.nbc)))
-			exit(EXIT_FAILURE);
-		ft_int_tab_cpy(new_adj.inds[i], ADJ.inds[i], ADJ.nbc);
-		free(ADJ.inds[i]);
-		new_adj.inds[i][new_adj.nbc - 1] = 0;
-		i++;
-	}
+	copy_old_mat(&new_adj);
 	if (!(new_adj.inds[new_adj.nbl - 1] = ft_intarr_init(new_adj.nbc)))
 		exit(EXIT_FAILURE);
 	free(ADJ.inds);
 	ADJ = new_adj;
+}
+
+int add_ants(void)
+{
+	t_room start;
+	int i;
+
+	i = -1;
+	start = start_room();
+	if (!(ANTS = (t_ant*)malloc(sizeof(t_ant) * NBANTS)))
+		return (0);
+	while (++i < NBANTS)
+	{
+		ANTS[i].no = i;
+		ANTS[i].room = start;
+	}
+	return (1);
 }

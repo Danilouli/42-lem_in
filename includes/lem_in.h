@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 19:16:41 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/16 14:50:18 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/17 12:15:58 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ typedef struct	s_room
 	int		count;
 	int		x;
 	int		y;
+	char	**helptab;
 }								t_room;
 
 typedef struct	s_ant
@@ -56,15 +57,19 @@ typedef struct 	s_lemin
 void		read_lemin(void);
 void		add_room(t_room new_room);
 void 		add_mat_line(void);
+int 		add_ants(void);
 int			init_room(char *room_line, char *type, int room_num);
 int			init_tube(char *tube_line);
 t_room	find_room(char *room_name);
+t_room	start_room(void);
+t_room	end_room(void);
 int			is_room_line(char *l);
 int 		is_room_name(char *str);
 int			is_tube_line(char *l);
 char 		*is_command_line(char *l);
 int			is_comment_line(char *l);
 void 		init_g_lemin(void);
+void		print_lemin(void);
 
 t_lemin		g_lemin;
 

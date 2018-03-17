@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 17:58:06 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/16 16:25:25 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/17 12:19:24 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,5 +84,7 @@ char *is_command_line(char *l)
 
 int	is_comment_line(char *l)
 {
+	if (is_command_line(l))
+		return (0);
 	return (l[0] == '#');
 }
