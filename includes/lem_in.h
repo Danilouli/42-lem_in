@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 19:16:41 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/17 13:35:17 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/17 14:40:36 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,13 @@ typedef struct	s_room
 	int		x;
 	int		y;
 	char	**helptab;
+	int 	queue;
 }								t_room;
 
 typedef struct	s_ant
 {
 	t_room	room;
+	int			next_move;
 	int			no;
 }								t_ant;
 

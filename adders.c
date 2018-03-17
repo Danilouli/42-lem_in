@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:53:03 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/17 14:11:45 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/17 14:40:49 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int add_ants(void)
 	{
 		ANTS[i].no = i;
 		ANTS[i].room = start;
+		ANTS[i].next_move = -1;
 	}
 	return (1);
 }
