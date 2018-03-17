@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 19:16:41 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/17 14:40:36 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/17 16:45:21 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define ANTS			(g_lemin.ants)
 # define NBROOMS	(g_lemin.nbrooms)
 # define NBANTS		(g_lemin.nbants)
+# define INF 2147483647
 
 typedef struct	s_matrix
 {
