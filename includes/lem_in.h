@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 19:16:41 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/17 12:15:58 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/17 13:35:17 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,8 @@ char 		*is_command_line(char *l);
 int			is_comment_line(char *l);
 void 		init_g_lemin(void);
 void		print_lemin(void);
+int			read_ok(void);
+int 		good_or_exit(void);
 
 t_lemin		g_lemin;
 

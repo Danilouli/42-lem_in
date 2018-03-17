@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:45:17 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/17 12:23:27 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/17 14:11:39 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ int	init_tube(char *tube_line)
 	int	len;
 	int	from;
 	int	to;
+	t_room t;
 
 	i = -1;
 	len = 0;
@@ -64,14 +65,15 @@ int	init_tube(char *tube_line)
 		if (ft_strequ(ft_strstr(tube_line, ROOMS[i].name), tube_line)
 		&& tube_line[len] == '-' && is_room_name(tube_line + len + 1))
 		{
-			from = find_room(ROOMS[i].name).no;
+			t = find_room(ROOMS[i].name);
+			from = t.no;
 			to = find_room(tube_line + len + 1).no;
 			break;
 		}
 	}
 	if (from == -1 || to == -1)
 		return (0);
-	MAT(from, to) = 1;
-	MAT(to, from) = 1;
+	ADJ.inds[from][to] = 1;
+	ADJ.inds[to][from] = 1;
 	return (1);
 }
