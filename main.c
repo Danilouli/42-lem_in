@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:22:50 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 10:18:36 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/18 10:45:45 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,6 @@ int	main(void)
 	free(ADJ.inds);
 	free(ROOMS);
 	free(ANTS);
+	// while (1);
 	return (0);
 }
