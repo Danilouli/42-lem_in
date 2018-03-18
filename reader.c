@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:17:42 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 10:19:04 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/18 10:55:34 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 static void read_nbants(void) {
 	char *l;
+	int 	r;
 
-	while (get_next_line(0, &l) > 0 && !ft_isnumstr(l))
+	while ((r = get_next_line(0, &l)) > 0 && !ft_isnumstr(l))
 	{
 		if (!is_comment_line(l) && ft_printf("ERROR\n") && ft_strdelbool(&l))
 			exit(EXIT_SUCCESS);
 		ft_strdel(&l);
 	}
-	NBANTS = 10;
-	if (((NBANTS = (int)ft_atoi(l)) == 0) && ft_printf("ERROR\n"))
+	if (r <= 0 || (((NBANTS = (int)ft_atoi(l)) == 0) && ft_printf("ERROR\n")))
 		exit(EXIT_SUCCESS);
 	ft_strdel(&l);
 }
