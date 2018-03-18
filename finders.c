@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 09:37:36 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 08:32:01 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/18 09:44:31 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,16 +60,42 @@ t_room	end_room(void)
 	return (urgret);
 }
 
-int 		find_way(int *pred)
+int 		find_way(int *pred, int ori)
 {
 	int j;
 
+	ft_printf("from n %d\n", ori);
 	j = (end_room()).no;
 	while (j >= 0)
 	{
-		if (pred[j] == start_room().no)
+		if (pred[j] == ori)
 			return (j);
 		j = pred[j];
 	}
 	return (-1);
+}
+
+int			find_way2(int *pred)
+{
+	int j;
+	int k;
+	int *help;
+	int ret;
+
+	if (!(help = ft_intarr_init(NBROOMS)))
+		return (-1);
+	j = (end_room()).no;
+	k = 0;
+	while (j >= 0)
+	{
+		help[k] = j;
+		k++;
+		j = pred[j];
+	}
+	if (k - 2 < 0)
+		ret = ((end_room()).no);
+	else
+		ret = help[k - 2];
+	free(help);
+	return (ret);
 }

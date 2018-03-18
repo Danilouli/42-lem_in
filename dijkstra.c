@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 14:45:23 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/18 08:33:48 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/18 09:38:58 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,8 @@ int	dijkstra(t_room from)
 	init_dists_way(&dists, &pred, from);
 	while (!update_dists_for_rooms(dists, &pred, &explo))
 		;
-	to = find_way(pred);
+	// print_preds(pred);
+	to = find_way2(pred);
 	ft_free_all(3, pred, explo, dists);
 	return (to);
 }

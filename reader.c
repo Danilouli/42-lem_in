@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:17:42 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/17 14:28:59 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/18 10:19:04 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,8 @@ void	read_lemin(void)
 	status = 1;
 	while (status && get_next_line(0, &l) > 0)
 	{
-		if (!is_comment_line(l))
-			ft_printf("%s\n",l);
+		// if (!is_comment_line(l))
+		// 	ft_printf("%s\n",l);
 		if ((status = read_line(l)))
 			ft_strdel(&l);
 	}

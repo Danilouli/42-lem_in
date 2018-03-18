@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 11:12:55 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/18 08:24:14 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/18 10:18:41 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,8 @@ void print_lemin(void) {
 	ft_printf("\nNombre de fourmis :  %d\n",NBANTS);
 	ft_printf("\nNombre de chambres : %d\nLes chambres :\n",NBROOMS);
 	while (++i < NBROOMS)
-		ft_printf("C no %d : nom %s, type %s\n",i, ROOMS[i].name, ROOMS[i].type);
+		ft_printf("C no %d : nom %s, type %s, nb de fourmis %d, queue %d\n",i, ROOMS[i].name, ROOMS[i].type,
+		ROOMS[i].count, ROOMS[i].queue);
 	i = -1;
 	ft_printf("\nMatrice d' adjacence\n");
 	while (++i < ADJ.nbl)
@@ -41,7 +42,7 @@ void print_lemin(void) {
 void print_preds(int *pred)
 {
 	int j;
-		
+
 	ft_printf("Reverse chemin\n");
 	j = (end_room()).no;
 	while (j >= 0)

@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 19:16:41 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 08:33:07 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/18 09:35:23 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,9 @@ int			read_ok(void);
 int 		good_or_exit(void);
 int			dijkstra(t_room from);
 void 		print_preds(int *pred);
-int 		find_way(int *pred);
+int 		find_way(int *pred, int ori);
+int			find_way2(int *pred);
+void 		manage_ants(void);
 
 t_lemin		g_lemin;
 

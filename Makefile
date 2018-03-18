@@ -6,7 +6,7 @@
 #    By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 20:20:12 by schmurz           #+#    #+#              #
-#    Updated: 2018/03/18 07:48:20 by schmurz          ###   ########.fr        #
+#    Updated: 2018/03/18 09:05:22 by schmurz          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iincludes
 SRCDIR = ./
 SRCFILES = main.c reader.c adders.c finders.c initializators.c verificators.c \
-						printers.c verificators2.c dijkstra.c
+						printers.c verificators2.c dijkstra.c managers.c
 SRC = $(subst ${space}, $(SRCDIR), $(SRCFILES))
 OBJ = $(SRC:.c=.o)
 
