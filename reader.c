@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:17:42 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 10:55:34 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/18 16:07:22 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,21 @@ void	read_lemin(void)
 {
 	char	*l;
 	int		status;
+	int 	r;
 
 	init_g_lemin();
 	read_nbants();
 	status = 1;
-	while (status && get_next_line(0, &l) > 0)
+	r = 1;
+	while (get_next_line(0, &l) == 1)
 	{
-		// if (!is_comment_line(l))
-		// 	ft_printf("%s\n",l);
+		ft_putendl(l);
+		if (!is_comment_line(l))
+			ft_putendl(l);
 		if ((status = read_line(l)))
-			ft_strdel(&l);
+		ft_strdel(&l);
 	}
+	ft_printf("r %d\n",r);
 	if (!add_ants())
 		exit(EXIT_FAILURE);
 }

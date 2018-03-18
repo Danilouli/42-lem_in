@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 20:42:00 by schmurz           #+#    #+#             */
-/*   Updated: 2018/02/04 15:39:14 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/18 15:46:18 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 # define GET_NEXT_LINE_H
 # include "libft.h"
 
-# define BUFF_SIZE 1
+# define BUFF_SIZE 99999
 
 #endif
