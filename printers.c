@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 11:12:55 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/17 14:32:12 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/18 08:24:14 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,18 @@ void print_lemin(void) {
 	while (++i < NBANTS)
 		ft_printf("Fourmi no %d : se trouve en salle %s (salle no %d)\n",
 		ANTS[i].no, ANTS[i].room.name, ANTS[i].room.no);
+}
+
+void print_preds(int *pred)
+{
+	int j;
+		
+	ft_printf("Reverse chemin\n");
+	j = (end_room()).no;
+	while (j >= 0)
+	{
+		ft_printf("%d, ",j);
+		j = pred[j];
+	}
+	ft_printf("\n(Fin sur un %d)\n",j);
 }

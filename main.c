@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:22:50 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/17 14:29:18 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/18 08:32:52 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,13 @@
 int	main(void)
 {
 	int i = 0;
+	int next;
 
 	read_lemin();
 	print_lemin();
+	ft_printf("\n----------dijkstra----------\n");
+	next = dijkstra(start_room());
+	ft_printf("next %d\n",next);
 	while (i < NBROOMS)
 	{
 		ft_strdel(&(ROOMS[i].name));
@@ -28,5 +32,6 @@ int	main(void)
 	free(ADJ.inds);
 	free(ROOMS);
 	free(ANTS);
+	while (1);
 	return (0);
 }

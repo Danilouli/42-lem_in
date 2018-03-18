@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:45:17 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/17 14:41:55 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/18 08:11:08 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	init_room(char *room_line, char *type, int room_num)
 	new_room.no = room_num;
 	new_room.type = (type) ? type : "path";
 	new_room.name = helptab[0];
-	new_room.queue = 0;
+	new_room.queue = 1;
 	new_room.count = (ft_strequ(new_room.type, "start")) ? NBANTS : 0;
 	new_room.x = ft_atoi(helptab[1]);
 	new_room.y = ft_atoi(helptab[2]);

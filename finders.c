@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/16 09:37:36 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/17 11:42:47 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/18 08:32:01 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,18 @@ t_room	end_room(void)
 		i++;
 	}
 	return (urgret);
+}
+
+int 		find_way(int *pred)
+{
+	int j;
+
+	j = (end_room()).no;
+	while (j >= 0)
+	{
+		if (pred[j] == start_room().no)
+			return (j);
+		j = pred[j];
+	}
+	return (-1);
 }
