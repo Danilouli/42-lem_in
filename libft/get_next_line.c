@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/03 18:04:26 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 15:11:57 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/19 08:00:36 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static int	when_read_over(char **line, char **kp)
 	{
 		if (!(*line = ft_strdup(*kp)))
 			return (-1);
-		**kp = 0;
+		ft_strdel(kp);
 		return (1);
 	}
 	else
@@ -87,10 +87,7 @@ int			get_next_line(const int fd, char **line)
 	int			r;
 
 	if (!(b = (char*)malloc(BUFF_SIZE + 1)) || fd < 0 || (read(fd, "", 0)) < 0)
-	{
-		ft_printf("fini\n");
 		return (safe_quit(&b));
-	}
 	kp[fd] = (kp[fd] == 0 || kp[fd][0] == 0) ? ft_strdup("\0") : kp[fd];
 	while ((r = read(fd, b, BUFF_SIZE)))
 	{

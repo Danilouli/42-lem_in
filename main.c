@@ -33,6 +33,6 @@ int	main(void)
 	free(ADJ.inds);
 	free(ROOMS);
 	free(ANTS);
-	// while (1);
+	while (1);
 	return (0);
 }
