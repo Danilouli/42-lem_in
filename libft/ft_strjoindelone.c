@@ -1,35 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strjoindelone.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/14 20:22:50 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/19 11:19:18 by schmurz          ###   ########.fr       */
+/*   Created: 2018/03/14 17:27:27 by schmurz           #+#    #+#             */
+/*   Updated: 2018/03/19 10:48:27 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char		*ft_strjoindelone(char **s1, char *s2)
 {
-	int i = 0;
+	char	*str;
 
-	(void)ac;
-	read_lemin(is_option("-q", av));
-	if (is_option("-v", av))
-		print_lemin(is_option("-m", av));
-	manage_ants();
-	while (i < NBROOMS)
-	{
-		ft_strdel(&(ROOMS[i].name));
-		free(ROOMS[i].helptab);
-		free(ADJ.inds[i]);
-		i++;
-	}
-	free(ADJ.inds);
-	free(ROOMS);
-	free(ANTS);
-	return (0);
+	if (!(*s1) && !s2)
+		return (NULL);
+	if (!(*s1))
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup((*s1)));
+	if (!(str = ft_strnew(ft_strlen(*s1) + ft_strlen(s2))))
+		return (NULL);
+	ft_strcpy(str, *s1);
+	ft_strcat(str, s2);
+	ft_strdel(s1);
+	return (str);
 }

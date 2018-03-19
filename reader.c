@@ -6,13 +6,13 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:17:42 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 16:07:22 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/19 11:16:17 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void read_nbants(void) {
+static void read_nbants(int op) {
 	char *l;
 	int 	r;
 
@@ -25,6 +25,8 @@ static void read_nbants(void) {
 	if (r <= 0 || (((NBANTS = (int)ft_atoi(l)) == 0) && ft_printf("ERROR\n")))
 		exit(EXIT_SUCCESS);
 	ft_strdel(&l);
+	if (!op)
+		ft_printf("%d\n", NBANTS);
 }
 
 static	int read_line(char *l)
@@ -52,25 +54,25 @@ static	int read_line(char *l)
 	return (1);
 }
 
-void	read_lemin(void)
+void	read_lemin(int op)
 {
 	char	*l;
 	int		status;
 	int 	r;
 
 	init_g_lemin();
-	read_nbants();
+	read_nbants(op);
 	status = 1;
 	r = 1;
 	while (get_next_line(0, &l) == 1)
 	{
-		ft_putendl(l);
-		if (!is_comment_line(l))
+		if (!is_comment_line(l) && !op)
 			ft_putendl(l);
 		if ((status = read_line(l)))
 		ft_strdel(&l);
 	}
-	ft_printf("r %d\n",r);
+	if (!op)
+		ft_putchar('\n');
 	if (!add_ants())
 		exit(EXIT_FAILURE);
 }

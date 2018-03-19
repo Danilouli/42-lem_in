@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 08:41:54 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 16:08:38 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/19 11:19:54 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,5 @@ void manage_ants(void) {
 		while (++i < NBANTS)
 				manage_ant(&(ANTS[i]));
 		ft_putchar('\n');
-		// print_lemin();
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 13:17:24 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/17 13:35:20 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/19 11:03:18 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,18 @@ int good_or_exit() {
 		return (0);
 	else
 		exit(EXIT_SUCCESS);
+}
+
+int is_option(char *option, char **av)
+{
+	int i;
+
+	i = 1;
+	while (av[i])
+	{
+		if (ft_strequ(option, av[i]))
+			return (1);
+		i++;
+	}
+	return (0);
 }

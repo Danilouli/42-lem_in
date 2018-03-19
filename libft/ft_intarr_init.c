@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_intarr_init.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/14 20:22:50 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/19 11:19:18 by schmurz          ###   ########.fr       */
+/*   Created: 2018/03/19 10:47:52 by schmurz           #+#    #+#             */
+/*   Updated: 2018/03/19 10:48:18 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "lem_in.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	*ft_intarr_init(int len)
 {
-	int i = 0;
+	int i;
+	int *ret;
 
-	(void)ac;
-	read_lemin(is_option("-q", av));
-	if (is_option("-v", av))
-		print_lemin(is_option("-m", av));
-	manage_ants();
-	while (i < NBROOMS)
+	i = 0;
+	if (!(ret = (int*)malloc(sizeof(int) * len)))
+		return (0);
+	while (i < len)
 	{
-		ft_strdel(&(ROOMS[i].name));
-		free(ROOMS[i].helptab);
-		free(ADJ.inds[i]);
+		ret[i] = 0;
 		i++;
 	}
-	free(ADJ.inds);
-	free(ROOMS);
-	free(ANTS);
-	return (0);
+	return (ret);
 }

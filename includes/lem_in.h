@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 19:16:41 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/18 09:35:23 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/19 11:04:53 by schmurz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ typedef struct 	s_lemin
 	t_room		*rooms;
 }								t_lemin;
 
-void		read_lemin(void);
+void		read_lemin(int op);
 void		add_room(t_room new_room);
 void 		add_mat_line(void);
 int 		add_ants(void);
@@ -72,7 +72,7 @@ int			is_tube_line(char *l);
 char 		*is_command_line(char *l);
 int			is_comment_line(char *l);
 void 		init_g_lemin(void);
-void		print_lemin(void);
+void		print_lemin(int op);
 int			read_ok(void);
 int 		good_or_exit(void);
 int			dijkstra(t_room from);
@@ -80,6 +80,7 @@ void 		print_preds(int *pred);
 int 		find_way(int *pred, int ori);
 int			find_way2(int *pred);
 void 		manage_ants(void);
+int 		is_option(char *option, char **av);
 
 t_lemin		g_lemin;
 
