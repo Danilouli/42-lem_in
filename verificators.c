@@ -6,13 +6,13 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 17:58:06 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/17 13:16:20 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:39:57 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-int	is_room_line(char *l)
+int		is_room_line(char *l)
 {
 	int i;
 	int spcs;
@@ -30,7 +30,7 @@ int	is_room_line(char *l)
 	while (l[i] && l[i] != ' ')
 	{
 		if (!ft_isdigit(l[i]))
-			return(0);
+			return (0);
 		i++;
 	}
 	spcs = (l[i] == ' ') ? spcs + 1 : spcs;
@@ -39,7 +39,7 @@ int	is_room_line(char *l)
 	return (spcs == 2);
 }
 
-int is_room_name(char *str)
+int		is_room_name(char *str)
 {
 	int i;
 
@@ -53,7 +53,7 @@ int is_room_name(char *str)
 	return (0);
 }
 
-int	is_tube_line(char *l)
+int		is_tube_line(char *l)
 {
 	int i;
 	int len;
@@ -73,7 +73,7 @@ int	is_tube_line(char *l)
 	return (0);
 }
 
-char *is_command_line(char *l)
+char	*is_command_line(char *l)
 {
 	if (!(l[0] == '#' && l[1] == '#'))
 		return (0);
@@ -82,7 +82,7 @@ char *is_command_line(char *l)
 	return ((ft_strequ(l + 2, "start")) ? "start" : "end");
 }
 
-int	is_comment_line(char *l)
+int		is_comment_line(char *l)
 {
 	if (is_command_line(l))
 		return (0);

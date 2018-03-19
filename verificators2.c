@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 13:17:24 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/19 11:03:18 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:38:43 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,15 @@ int	read_ok(void)
 	return (0);
 }
 
-int good_or_exit() {
+int	good_or_exit(void)
+{
 	if (read_ok())
 		return (0);
 	else
 		exit(EXIT_SUCCESS);
 }
 
-int is_option(char *option, char **av)
+int	is_option(char *option, char **av)
 {
 	int i;
 

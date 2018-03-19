@@ -6,13 +6,13 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 11:12:55 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/19 11:13:00 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:35:40 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void print_mat()
+static	void	print_mat(void)
 {
 	int j;
 	int i;
@@ -24,23 +24,24 @@ static void print_mat()
 		j = -1;
 		ft_putstr("| ");
 		while (++j < ADJ.nbc)
-			ft_printf("%d ",MAT(i,j));
+			ft_printf("%d ", MAT(i, j));
 		ft_putstr("|\n");
 	}
 }
 
-void print_lemin(int op) {
+void			print_lemin(int op)
+{
 	int i;
 	int j;
 
 	i = -1;
 	j = -1;
 	ft_putendl("***********INFOS***********");
-	ft_printf("\nNombre de fourmis :  %d",NBANTS);
-	ft_printf("\nNombre de chambres : %d\n\nLes chambres :\n",NBROOMS);
+	ft_printf("\nNombre de fourmis :  %d", NBANTS);
+	ft_printf("\nNombre de chambres : %d\n\nLes chambres :\n", NBROOMS);
 	while (++i < NBROOMS)
-		ft_printf("C no %d : nom %s, type %s, nb de fourmis %d, queue %d\n",i, ROOMS[i].name, ROOMS[i].type,
-		ROOMS[i].count, ROOMS[i].queue);
+		ft_printf("C no %d : nom %s, type %s, nb de fourmis %d, queue %d\n",
+		i, ROOMS[i].name, ROOMS[i].type, ROOMS[i].count, ROOMS[i].queue);
 	if (op)
 		print_mat();
 	i = -1;
@@ -51,7 +52,7 @@ void print_lemin(int op) {
 	ft_putendl("\n***********FIN INFOS***********\n");
 }
 
-void print_preds(int *pred)
+void			print_preds(int *pred)
 {
 	int j;
 
@@ -59,8 +60,8 @@ void print_preds(int *pred)
 	j = (end_room()).no;
 	while (j >= 0)
 	{
-		ft_printf("%d, ",j);
+		ft_printf("%d, ", j);
 		j = pred[j];
 	}
-	ft_printf("\n(Fin sur un %d)\n",j);
+	ft_printf("\n(Fin sur un %d)\n", j);
 }

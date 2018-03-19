@@ -6,15 +6,15 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 08:41:54 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/19 11:19:54 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:09:14 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static	void 	move_ant(t_ant *ant, t_room *from, t_room *to)
+static	void	move_ant(t_ant *ant, t_room *from, t_room *to)
 {
-	ft_printf("L%d-%s ",ant->no, to->name);
+	ft_printf("L%d-%s ", ant->no, to->name);
 	if (from->count > 0)
 		(from->count)--;
 	if (ft_strequ(from->type, "path") && from->queue > 1)
@@ -25,7 +25,7 @@ static	void 	move_ant(t_ant *ant, t_room *from, t_room *to)
 	(to->count)++;
 }
 
-static 	void	manage_ant(t_ant *ant)
+static	void	manage_ant(t_ant *ant)
 {
 	int nm;
 
@@ -53,14 +53,15 @@ static 	void	manage_ant(t_ant *ant)
 		move_ant(ant, &(ROOMS[(ant->room).no]), &(ROOMS[nm]));
 }
 
-void manage_ants(void) {
+void			manage_ants(void)
+{
 	int i;
 
 	while (((end_room()).count < NBANTS))
 	{
 		i = -1;
 		while (++i < NBANTS)
-				manage_ant(&(ANTS[i]));
+			manage_ant(&(ANTS[i]));
 		ft_putchar('\n');
 	}
 }

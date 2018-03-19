@@ -6,16 +6,16 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:53:03 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/17 14:40:49 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/19 20:57:43 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void	add_room(t_room new_room)
+void			add_room(t_room new_room)
 {
 	t_room	*new_rooms;
-	int i;
+	int		i;
 
 	i = 0;
 	if (!(new_rooms = (t_room*)(malloc(sizeof(t_room) * NBROOMS))))
@@ -36,7 +36,7 @@ void	add_room(t_room new_room)
 	ROOMS = new_rooms;
 }
 
-static void copy_old_mat(t_matrix *new_adj)
+static void		copy_old_mat(t_matrix *new_adj)
 {
 	int	i;
 
@@ -52,7 +52,7 @@ static void copy_old_mat(t_matrix *new_adj)
 	}
 }
 
-void add_mat_line(void)
+void			add_mat_line(void)
 {
 	t_matrix	new_adj;
 
@@ -75,10 +75,10 @@ void add_mat_line(void)
 	ADJ = new_adj;
 }
 
-int add_ants(void)
+int				add_ants(void)
 {
-	t_room start;
-	int i;
+	t_room	start;
+	int		i;
 
 	i = -1;
 	start = start_room();

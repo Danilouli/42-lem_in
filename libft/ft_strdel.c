@@ -6,13 +6,13 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 01:17:20 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/17 12:15:51 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:01:27 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_strdel(char **as)
+void	ft_strdel(char **as)
 {
 	if (as && *as)
 	{

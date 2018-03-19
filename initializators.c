@@ -6,13 +6,14 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 18:45:17 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/18 08:11:08 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:00:56 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-void init_g_lemin(void) {
+void	init_g_lemin(void)
+{
 	ADJ.nbl = 0;
 	ADJ.nbc = 0;
 	ADJ.inds = NULL;
@@ -22,11 +23,11 @@ void init_g_lemin(void) {
 	ROOMS = NULL;
 }
 
-int	init_room(char *room_line, char *type, int room_num)
+int		init_room(char *room_line, char *type, int room_num)
 {
 	char		**helptab;
-	t_room	new_room;
-	int j;
+	t_room		new_room;
+	int			j;
 
 	j = 0;
 	helptab = ft_strsplit(room_line, ' ');
@@ -48,7 +49,7 @@ int	init_room(char *room_line, char *type, int room_num)
 	return (1);
 }
 
-int	init_tube(char *tube_line)
+int		init_tube(char *tube_line)
 {
 	int	i;
 	int	len;
@@ -67,7 +68,7 @@ int	init_tube(char *tube_line)
 		{
 			from = find_room(ROOMS[i].name).no;
 			to = find_room(tube_line + len + 1).no;
-			break;
+			break ;
 		}
 	}
 	if (from == -1 || to == -1)

@@ -6,13 +6,13 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 14:45:23 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/19 11:20:18 by schmurz          ###   ########.fr       */
+/*   Updated: 2018/03/19 21:03:13 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "lem_in.h"
 
-static void init_dists_way(int **dists, int **pred, t_room from)
+static void	init_dists_way(int **dists, int **pred, t_room from)
 {
 	int i;
 
@@ -26,7 +26,7 @@ static void init_dists_way(int **dists, int **pred, t_room from)
 	}
 	i = -1;
 	while (++i < NBROOMS)
-			(*pred)[ROOMS[i].no] = (ROOMS[i].no == from.no) ? -2 : -1;
+		(*pred)[ROOMS[i].no] = (ROOMS[i].no == from.no) ? -2 : -1;
 }
 
 static int	get_min_dist(int *dists, int *explo)
@@ -44,7 +44,7 @@ static int	get_min_dist(int *dists, int *explo)
 	return (md);
 }
 
-static void update_dists_for_room(int m, int *dists, int **pred, int **explo)
+static void	update_dists_for_room(int m, int *dists, int **pred, int **explo)
 {
 	int i;
 	int d;
@@ -63,7 +63,7 @@ static void update_dists_for_room(int m, int *dists, int **pred, int **explo)
 	(*explo)[m] = 1;
 }
 
-static int update_dists_for_rooms(int *dists, int **pred, int **explo)
+static int	update_dists_for_rooms(int *dists, int **pred, int **explo)
 {
 	int md;
 	int m;
@@ -85,7 +85,7 @@ static int update_dists_for_rooms(int *dists, int **pred, int **explo)
 	return (finished);
 }
 
-int	dijkstra(t_room from)
+int			dijkstra(t_room from)
 {
 	int			*pred;
 	int			*explo;
@@ -93,7 +93,8 @@ int	dijkstra(t_room from)
 	int			to;
 
 	to = -1;
-	if (!(pred = ft_intarr_init(NBROOMS)) || !(explo = ft_intarr_init(NBROOMS))
+	if (!(pred = ft_intarr_init(NBROOMS))
+	|| !(explo = ft_intarr_init(NBROOMS))
 	|| !(dists = ft_intarr_init(NBROOMS)))
 		return (-1);
 	init_dists_way(&dists, &pred, from);
