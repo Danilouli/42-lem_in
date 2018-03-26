@@ -6,7 +6,7 @@
 #    By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 20:20:12 by schmurz           #+#    #+#              #
-#    Updated: 2018/03/18 10:56:17 by schmurz          ###   ########.fr        #
+#    Updated: 2018/03/26 17:22:13 by dsaadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,20 +23,22 @@ space := ${null} ${null}
 LIBDIR = ./libft
 LIBS = -lft
 LIBNAME = libft.a
-INCLUDES = ./includes
+INCLUDES = ./includes/
 EXEC = lem-in
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES)
 SRCDIR = ./
+HEADFILES = lem_in.h
 SRCFILES = main.c reader.c adders.c finders.c initializators.c verificators.c \
 						printers.c verificators2.c dijkstra.c managers.c
 SRC = $(subst ${space}, $(SRCDIR), $(SRCFILES))
+HEAD = $(subst ${space}, $(INCLUDES), $(HEADFILES))
 OBJ = $(SRC:.c=.o)
 
 all: $(LIBNAME) $(EXEC)
 		@printf "%b" "$(OK_COLOR)Finished : OK$(NO_COLOR)\n"
 
-$(EXEC): $(OBJ)
+$(EXEC): $(OBJ) $(HEAD)
 						@printf "%b" "$(COM_COLOR)Compiling : $(OBJ_COLOR)$(@)$(NO_COLOR)\n"
 						@$(CC) -o $(EXEC) -L$(LIBDIR) $(LIBS) $(CFLAGS) $(OBJ)
 
