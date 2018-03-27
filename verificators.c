@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/15 17:58:06 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/19 21:39:57 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/27 13:06:12 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,11 +75,20 @@ int		is_tube_line(char *l)
 
 char	*is_command_line(char *l)
 {
+	t_room start;
+	t_room end;
+
+	start = start_room();
+	end = end_room();
 	if (!(l[0] == '#' && l[1] == '#'))
 		return (0);
 	if (!ft_strequ(l + 2, "start") && !ft_strequ(l + 2, "end"))
 		return (0);
-	return ((ft_strequ(l + 2, "start")) ? "start" : "end");
+	if (ft_strequ(l + 2, "start") && start.no <= -1)
+		return ("start");
+	if (ft_strequ(l + 2, "end") && end.no <= -1)
+		return ("end");
+	return (0);
 }
 
 int		is_comment_line(char *l)

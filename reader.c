@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:17:42 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/26 17:50:43 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/27 13:30:57 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,12 @@ static void	read_nbants(int op)
 
 	while ((r = get_next_line(0, &l)) > 0 && !ft_isnumstr(l))
 	{
-		if (!is_comment_line(l) && ft_printf("ERROR\n") && ft_strdelbool(&l))
+		if (!is_comment_line(l) && ft_printf("ERROR - BAD FIRST LINE\n") && ft_strdelbool(&l))
 			exit(EXIT_SUCCESS);
 		ft_strdel(&l);
 	}
-	if (r <= 0 || (((NBANTS = (int)ft_atoi(l)) == 0) && ft_printf("ERROR\n")))
+	if (r <= 0 || (((NBANTS = (int)ft_atoi(l)) <= 0)
+	&& ft_printf("ERROR - NO OR NEGATIVE ANTS\n")))
 		exit(EXIT_SUCCESS);
 	ft_strdel(&l);
 	if (!op)
@@ -50,7 +51,7 @@ static	int	read_line(char *l)
 	}
 	else if (!is_comment_line(l) && ft_strdelbool(&l))
 		return (good_or_exit());
-	if (!is_command_line(l))
+	if (!is_command_line(l) && !is_comment_line(l))
 		room_type = 0;
 	return (1);
 }

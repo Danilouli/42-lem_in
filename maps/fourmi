@@ -1,0 +1,31 @@
+42
+A 45 576
+##enqd
+##start
+D 979 663
+F 576 57698
+##start
+##end
+##start
+G 67687 66687
+H 6687468 7364
+I 57 6867
+J 7 6867
+##start
+##end
+##start
+##end
+K 5 6867
+P 58 6867
+M 45 6867
+N 1 6867
+A-H
+H-I
+I-G
+G-F
+F-J
+J-K
+K-P
+P-M
+M-N
+N-D

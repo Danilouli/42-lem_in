@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 14:45:23 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/19 21:03:13 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/27 13:28:06 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static void	update_dists_for_room(int m, int *dists, int **pred, int **explo)
 	while (++i < NBROOMS)
 	{
 		if (MAT(m, ROOMS[i].no) && !(*explo)[ROOMS[i].no]
-		&& (d = dists[m] + ROOMS[i].queue) < dists[ROOMS[i].no])
+		&& dists[m] != INF && (d = dists[m] + ROOMS[i].queue) < dists[ROOMS[i].no])
 		{
 			dists[ROOMS[i].no] = d;
 			(*pred)[ROOMS[i].no] = m;
@@ -100,7 +100,7 @@ int			dijkstra(t_room from)
 	init_dists_way(&dists, &pred, from);
 	while (!update_dists_for_rooms(dists, &pred, &explo))
 		;
-	to = find_way2(pred);
+	to = find_way(pred);
 	ft_free_all(3, pred, explo, dists);
 	return (to);
 }

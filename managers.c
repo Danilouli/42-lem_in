@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 08:41:54 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/19 21:09:14 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/27 13:20:23 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,9 +32,9 @@ static	void	manage_ant(t_ant *ant)
 	nm = dijkstra(ant->room);
 	if (ft_strequ((ant->room).type, "end"))
 		return ;
-	if (nm < 0)
+	if (nm < 0 || MAT((ant->room).no, nm) == 0)
 	{
-		ft_printf("LOGIC ERROR 1\n");
+		ft_printf("ERROR - LOGIC\n");
 		exit(EXIT_FAILURE);
 	}
 	if (ft_strequ(ROOMS[nm].type, "path"))
@@ -45,7 +45,7 @@ static	void	manage_ant(t_ant *ant)
 			move_ant(ant, &(ROOMS[(ant->room).no]), &(ROOMS[nm]));
 		else if (ROOMS[nm].count < 0 || ROOMS[nm].count > 1)
 		{
-			ft_printf("LOGIC ERROR 2\n");
+			ft_printf("ERROR - LOGIC\n");
 			exit(EXIT_FAILURE);
 		}
 	}
