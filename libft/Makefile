@@ -6,7 +6,7 @@
 #    By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/13 16:37:57 by dsaadia           #+#    #+#              #
-#    Updated: 2018/03/26 17:21:05 by dsaadia          ###   ########.fr        #
+#    Updated: 2018/03/27 13:40:34 by dsaadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ space := ${null} ${null}
 NAME = libft.a
 CC = gcc
 INCLUDES = ./includes/
-CFLAGS = -Wall -Wextra -Werror -Iincludes
+CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES)
 SRCDIR = ./
 HEADFILES = ft_printf.h get_next_line.h libft.h
 SRCFILES = ft_int_tab_cpy.c ft_astrrev.c ft_memccpy.c ft_striteri.c ft_isspacer.c\
