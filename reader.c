@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:17:42 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/27 13:30:57 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/29 20:05:04 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static void	read_nbants(int op)
 
 	while ((r = get_next_line(0, &l)) > 0 && !ft_isnumstr(l))
 	{
-		if (!is_comment_line(l) && ft_printf("ERROR - BAD FIRST LINE\n") && ft_strdelbool(&l))
+		if (!is_comment_line(l)
+		&& ft_printf("ERROR - BAD FIRST LINE\n") && ft_strdelbool(&l))
 			exit(EXIT_SUCCESS);
 		ft_strdel(&l);
 	}

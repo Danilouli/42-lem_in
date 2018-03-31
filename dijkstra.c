@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/17 14:45:23 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/27 13:28:06 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/29 20:05:36 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,8 @@ static void	update_dists_for_room(int m, int *dists, int **pred, int **explo)
 	while (++i < NBROOMS)
 	{
 		if (MAT(m, ROOMS[i].no) && !(*explo)[ROOMS[i].no]
-		&& dists[m] != INF && (d = dists[m] + ROOMS[i].queue) < dists[ROOMS[i].no])
+		&& dists[m] != INF
+		&& (d = dists[m] + ROOMS[i].queue) < dists[ROOMS[i].no])
 		{
 			dists[ROOMS[i].no] = d;
 			(*pred)[ROOMS[i].no] = m;
