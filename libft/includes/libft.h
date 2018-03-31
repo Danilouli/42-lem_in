@@ -6,7 +6,7 @@
 /*   By: dsaadia <dsaadia@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/13 18:38:26 by dsaadia           #+#    #+#             */
-/*   Updated: 2018/03/17 11:24:48 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/31 16:16:35 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,8 +128,9 @@ void				ft_intarr_push(int **arr, int *len, int to_add);
 void				ft_free_strtab(char **strtab);
 int					ft_free_all(int nbpt, ...);
 int					ft_intarr_ctint(int *tab, int len, int to_count);
-void				ft_troll(void);
 int					ft_in_strtab(char *str, char **strtab);
+int					ft_overf_ll(char *llstr);
 int					*ft_intarr_init(int len);
+void				ft_troll(void);
 
 #endif

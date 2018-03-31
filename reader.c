@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:17:42 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/29 20:05:04 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/31 16:24:56 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,9 @@ static void	read_nbants(int op)
 			exit(EXIT_SUCCESS);
 		ft_strdel(&l);
 	}
-	if (r <= 0 || (((NBANTS = (int)ft_atoi(l)) <= 0)
-	&& ft_printf("ERROR - NO OR NEGATIVE ANTS\n")))
+	if ((r <= 0 || ft_overf_ll(l) || ft_atoi(l) > 2147483647
+	|| (NBANTS = (int)ft_atoi(l)) <= 0)
+	&& ft_printf("ERROR - NO OR NEGATIVE ANTS\n"))
 		exit(EXIT_SUCCESS);
 	ft_strdel(&l);
 	if (!op)

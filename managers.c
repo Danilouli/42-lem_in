@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/18 08:41:54 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/27 13:20:23 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/03/31 16:01:40 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static	void	move_ant(t_ant *ant, t_room *from, t_room *to)
 {
-	ft_printf("L%d-%s ", ant->no, to->name);
+	ft_printf("L%d-%s ", ant->no + 1, to->name);
 	if (from->count > 0)
 		(from->count)--;
 	if (ft_strequ(from->type, "path") && from->queue > 1)
