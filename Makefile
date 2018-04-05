@@ -6,7 +6,7 @@
 #    By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/03/14 20:20:12 by schmurz           #+#    #+#              #
-#    Updated: 2018/03/27 13:37:49 by dsaadia          ###   ########.fr        #
+#    Updated: 2018/04/05 17:47:18 by dsaadia          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,7 @@ CFLAGS = -Wall -Wextra -Werror -I$(INCLUDES)
 SRCDIR = ./
 HEADFILES = lem_in.h
 SRCFILES = main.c reader.c adders.c finders.c initializators.c verificators.c \
-						printers.c verificators2.c dijkstra.c managers.c
+						printers.c verificators2.c dijkstra.c managers.c all_freer.c
 SRC = $(subst ${space}, $(SRCDIR), $(SRCFILES))
 HEAD = $(subst ${space}, $(INCLUDES), $(HEADFILES))
 OBJ = $(SRC:.c=.o)

@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 19:16:41 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/27 13:27:59 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/04/05 17:47:39 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ void					print_preds(int *pred);
 int						find_way(int *pred);
 void					manage_ants(void);
 int						is_option(char *option, char **av);
+int						free_all(void);
 
 t_lemin					g_lemin;
 

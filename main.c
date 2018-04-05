@@ -6,7 +6,7 @@
 /*   By: schmurz <schmurz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/14 20:22:50 by schmurz           #+#    #+#             */
-/*   Updated: 2018/03/27 13:22:09 by dsaadia          ###   ########.fr       */
+/*   Updated: 2018/04/05 18:12:36 by dsaadia          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	main(int ac, char **av)
 {
-	int i;
-
-	i = 0;
 	(void)ac;
 	read_lemin(is_option("-q", av));
 	if (is_option("-v", av))
@@ -25,15 +22,6 @@ int	main(int ac, char **av)
 		manage_ants();
 	else
 		ft_putendl("ERROR - NO START OR NO END");
-	while (i < NBROOMS)
-	{
-		ft_strdel(&(ROOMS[i].name));
-		free(ROOMS[i].helptab);
-		free(ADJ.inds[i]);
-		i++;
-	}
-	free(ADJ.inds);
-	free(ROOMS);
-	free(ANTS);
+	free_all();
 	return (0);
 }
